@@ -7,25 +7,23 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestImageConfig(t *testing.T) {
-	config1 := &ImageConfig{Name: "Hello"}
-	assert.Equal(t, config1.GetWidth(), defaultGridWidth)
-	assert.Equal(t, config1.GetHeight(), defaultGridHeight)
-	assert.Equal(t, config1.GetName(), "Hello")
+// func TestImageConfig(t *testing.T) {
+// 	config1 := &ImageConfig{Name: "Hello"}
+// 	assert.Equal(t, config1.GetWidth(), defaultGridWidth)
+// 	assert.Equal(t, config1.GetHeight(), defaultGridHeight)
+// 	assert.Equal(t, config1.GetName(), "Hello")
 
-	config2 := &ImageConfig{Name: "Bye", Width: 10, Height: 100}
-	assert.Equal(t, config2.GetWidth(), 10)
-	assert.Equal(t, config2.GetHeight(), 100)
-	assert.Equal(t, config2.GetName(), "Bye")
-}
+// 	config2 := &ImageConfig{Name: "Bye", Width: 10, Height: 100}
+// 	assert.Equal(t, config2.GetWidth(), 10)
+// 	assert.Equal(t, config2.GetHeight(), 100)
+// 	assert.Equal(t, config2.GetName(), "Bye")
+// }
 
 func TestGridConfig(t *testing.T) {
 	config1 := &GridConfig{}
 	assert.Equal(t, config1.GetRows(), 0)
 	assert.Equal(t, config1.GetColumns(), 0)
 	assert.Equal(t, config1.GetMarginWidth(), defaultGridMarginWidth)
-	assert.Equal(t, config1.GetWidth(100), 100)
-	assert.Equal(t, config1.GetHeight(100), 100)
 	assert.Equal(t, config1.GetLineDashes(), 0.0)
 	assert.Equal(t, config1.GetLineStrokeWidth(), 0.0)
 	assert.Equal(t, config1.GetBorderDashes(), 0.0)
@@ -42,8 +40,6 @@ func TestGridConfig(t *testing.T) {
 	assert.Equal(t, config2.GetRows(), 100)
 	assert.Equal(t, config2.GetColumns(), 200)
 	assert.Equal(t, config2.GetMarginWidth(), 1)
-	assert.Equal(t, config2.GetWidth(100), 98)
-	assert.Equal(t, config2.GetHeight(100), 98)
 	assert.Equal(t, config2.GetLineDashes(), 1.0)
 	assert.Equal(t, config2.GetLineStrokeWidth(), 4.0)
 	assert.Equal(t, config2.GetBorderDashes(), 2.0)

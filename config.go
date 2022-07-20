@@ -34,35 +34,37 @@ var (
 )
 
 // ImageConfig Grid Configuration
-type ImageConfig struct {
-	Width  int
-	Height int
-	Name   string
-}
+// type ImageConfig struct {
+// 	Width  int
+// 	Height int
+// 	Name   string
+// }
 
-// GetWidth gets image width
-func (g *ImageConfig) GetWidth() int {
-	if g.Width <= 0 {
-		return defaultGridWidth
-	}
-	return g.Width
-}
+// // GetWidth gets image width
+// func (g *ImageConfig) GetWidth() int {
+// 	if g.Width <= 0 {
+// 		return defaultGridWidth
+// 	}
+// 	return g.Width
+// }
 
-// GetHeight gets image height
-func (g *ImageConfig) GetHeight() int {
-	if g.Height <= 0 {
-		return defaultGridHeight
-	}
-	return g.Height
-}
+// // GetHeight gets image height
+// func (g *ImageConfig) GetHeight() int {
+// 	if g.Height <= 0 {
+// 		return defaultGridHeight
+// 	}
+// 	return g.Height
+// }
 
-// GetName gets image name
-func (g *ImageConfig) GetName() string {
-	return g.Name
-}
+// // GetName gets image name
+// func (g *ImageConfig) GetName() string {
+// 	return g.Name
+// }
 
 // GridConfig Grid Configuration
 type GridConfig struct {
+	Width             int //aka viewport width
+	Height            int //aka viewport height
 	Rows              int
 	Columns           int
 	MarginWidth       int
@@ -76,13 +78,13 @@ type GridConfig struct {
 }
 
 // GetWidth gets grid width
-func (g *GridConfig) GetWidth(imageWidth int) int {
-	return imageWidth - g.GetMarginWidth()*2
+func (g *GridConfig) GetWidth() int {
+	return g.Width - g.GetMarginWidth()*2
 }
 
 // GetHeight gets grid height
-func (g *GridConfig) GetHeight(imageHeight int) int {
-	return imageHeight - g.GetMarginWidth()*2
+func (g *GridConfig) GetHeight() int {
+	return g.Height - g.GetMarginWidth()*2
 }
 
 // GetMarginWidth gets margin width

@@ -1,5 +1,7 @@
 github.com/bgdnxt/gg v1.4.0 h1:UvyW4WgKVssV9NQNqGvylVwr4NmIoxb90846eiAcD4A=
 github.com/bgdnxt/gg v1.4.0/go.mod h1:JgN5C0qMuFua8pcSYwOSQKnv2iF+yM2xsqbz577wxaQ=
+github.com/bgdnxt/gg v1.4.1 h1:P9WpUcxU0GvPhxXyqiw/JL6rkBFrXWyQZSU8vrW2rsY=
+github.com/bgdnxt/gg v1.4.1/go.mod h1:JgN5C0qMuFua8pcSYwOSQKnv2iF+yM2xsqbz577wxaQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

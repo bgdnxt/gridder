@@ -11,18 +11,18 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	_, err := New(ImageConfig{}, GridConfig{Rows: 0})
+	_, err := New(GridConfig{Rows: 0})
 	assert.NotNil(t, err)
 
-	_, err = New(ImageConfig{}, GridConfig{Rows: 10, Columns: 0})
+	_, err = New(GridConfig{Rows: 10, Columns: 0})
 	assert.NotNil(t, err)
 
-	_, err = New(ImageConfig{}, GridConfig{Rows: 10, Columns: 10})
+	_, err = New(GridConfig{Rows: 10, Columns: 10})
 	assert.Nil(t, err)
 }
 
 func TestPaintCell(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
 	err = gridder.PaintCell(-1, -1, color.Black)
@@ -33,7 +33,7 @@ func TestPaintCell(t *testing.T) {
 }
 
 func TestDrawCircle(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
 	err = gridder.DrawCircle(-1, -1)
@@ -44,7 +44,7 @@ func TestDrawCircle(t *testing.T) {
 }
 
 func TestDrawRectangle(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
 	err = gridder.DrawRectangle(-1, -1)
@@ -55,7 +55,7 @@ func TestDrawRectangle(t *testing.T) {
 }
 
 func TestDrawLine(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
 	err = gridder.DrawLine(-1, -1)
@@ -66,7 +66,7 @@ func TestDrawLine(t *testing.T) {
 }
 
 func TestDrawPath(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
 	err = gridder.DrawPath(-1, -1, -1, -1)
@@ -77,7 +77,7 @@ func TestDrawPath(t *testing.T) {
 }
 
 func TestDrawString(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
 	font, _ := truetype.Parse(goregular.TTF)
@@ -91,15 +91,15 @@ func TestDrawString(t *testing.T) {
 }
 
 func TestSave(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 1, Columns: 1})
+	gridder, err := New(GridConfig{Rows: 1, Columns: 1})
 	assert.Nil(t, err)
 
-	err = gridder.SavePNG()
+	err = gridder.SavePNG("./test.png")
 	assert.NotNil(t, err)
 }
 
 func TestWriter(t *testing.T) {
-	gridder, err := New(ImageConfig{}, GridConfig{Rows: 2, Columns: 2, LineStrokeWidth: 2, BorderStrokeWidth: 10})
+	gridder, err := New(GridConfig{Rows: 2, Columns: 2, LineStrokeWidth: 2, BorderStrokeWidth: 10})
 	assert.Nil(t, err)
 
 	bImage := new(bytes.Buffer)

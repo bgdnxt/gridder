@@ -2,6 +2,7 @@ package gridder
 
 import (
 	"errors"
+	"image"
 	"image/color"
 	"io"
 
@@ -16,7 +17,7 @@ var (
 )
 
 // New creates a new gridder and sets it up with its configuration
-func New(imageConfig ImageConfig, gridConfig GridConfig) (*Gridder, error) {
+func New(gridConfig GridConfig) (*Gridder, error) {
 	rows := gridConfig.GetRows()
 	if rows == 0 {
 		return nil, errNoRows
@@ -27,10 +28,17 @@ func New(imageConfig ImageConfig, gridConfig GridConfig) (*Gridder, error) {
 		return nil, errNoColumns
 	}
 
+	if gridConfig.Width == 0 {
+		gridConfig.Width = defaultGridWidth
+	}
+
+	if gridConfig.Height == 0 {
+		gridConfig.Width = defaultGridHeight
+	}
+
 	gridder := Gridder{
-		imageConfig: imageConfig,
-		gridConfig:  gridConfig,
-		ctx:         gg.NewContext(imageConfig.GetWidth(), imageConfig.GetHeight()),
+		gridConfig: gridConfig,
+		ctx:        gg.NewContext(gridConfig.Width, gridConfig.Height),
 	}
 	gridder.paintBackground()
 	return &gridder, nil
@@ -38,16 +46,15 @@ func New(imageConfig ImageConfig, gridConfig GridConfig) (*Gridder, error) {
 
 // Gridder gridder structure
 type Gridder struct {
-	imageConfig ImageConfig
-	gridConfig  GridConfig
-	ctx         *gg.Context
+	gridConfig GridConfig
+	ctx        *gg.Context
 }
 
 // SavePNG saves to PNG
-func (g *Gridder) SavePNG() error {
+func (g *Gridder) SavePNG(path string) error {
 	g.paintGrid()
 	g.paintBorder()
-	return g.ctx.SavePNG(g.imageConfig.GetName())
+	return g.ctx.SavePNG(path)
 }
 
 // EncodePNG encodes the image as a PNG and writes it to the provided io.Writer.
@@ -214,6 +221,21 @@ func (g *Gridder) DrawString(row int, column int, text string, fontFace font.Fac
 	return nil
 }
 
+func (g *Gridder) DrawImage(row int, column int, im image.Image) error {
+	err := g.verifyInBounds(row, column)
+	if err != nil {
+		return err
+	}
+
+	center := g.getCellCenter(row, column)
+	g.ctx.Push()
+	// g.ctx.SetColor(stringConfig.GetColor())
+	// g.ctx.RotateAbout(gg.Radians(stringConfig.GetRotate()), center.X, center.Y)
+	g.ctx.DrawImageAnchored(im, center.X, center.Y, 0, 0)
+	g.ctx.Pop()
+	return nil
+}
+
 func (g *Gridder) paintBackground() {
 	margin := float64(g.gridConfig.GetMarginWidth())
 	g.ctx.Translate(margin, margin)
@@ -290,11 +312,9 @@ func (g *Gridder) getCellDimensions() (float64, float64) {
 }
 
 func (g *Gridder) getGridDimensions() (float64, float64) {
-	imageWidth := g.imageConfig.GetWidth()
-	imageHeight := g.imageConfig.GetHeight()
 
-	gridWidth := float64(g.gridConfig.GetWidth(imageWidth))
-	gridHeight := float64(g.gridConfig.GetHeight(imageHeight))
+	gridWidth := float64(g.gridConfig.GetWidth())
+	gridHeight := float64(g.gridConfig.GetHeight())
 	return gridWidth, gridHeight
 }
 

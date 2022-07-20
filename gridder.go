@@ -5,7 +5,7 @@ import (
 	"image/color"
 	"io"
 
-	"github.com/fogleman/gg"
+	"github.com/bgdnxt/gg"
 	"golang.org/x/image/font"
 )
 

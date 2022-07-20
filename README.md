@@ -1,15 +1,15 @@
-# gridder [![Build Status](https://travis-ci.com/shomali11/gridder.svg?branch=master)](https://travis-ci.com/shomali11/gridder) [![Go Report Card](https://goreportcard.com/badge/github.com/shomali11/gridder)](https://goreportcard.com/report/github.com/shomali11/gridder) [![GoDoc](https://godoc.org/github.com/shomali11/gridder?status.svg)](https://godoc.org/github.com/shomali11/gridder) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# gridder [![Build Status](https://travis-ci.com/shomali11/gridder.svg?branch=master)](https://travis-ci.com/shomali11/gridder) [![Go Report Card](https://goreportcard.com/badge/github.com/bgdnxt/gridder)](https://goreportcard.com/report/github.com/bgdnxt/gridder) [![GoDoc](https://godoc.org/github.com/bgdnxt/gridder?status.svg)](https://godoc.org/github.com/bgdnxt/gridder) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Built on top of Go Graphics [github.com/fogleman/gg](https://github.com/fogleman/gg) with the idea to simplify visualizing Grids using 2D Graphics.
+Built on top of Go Graphics [github.com/bgdnxt/gg](https://github.com/bgdnxt/gg) with the idea to simplify visualizing Grids using 2D Graphics.
 
 ## Dependencies
 
-- `gg` [github.com/fogleman/gg](https://github.com/fogleman/gg)
+- `gg` [github.com/bgdnxt/gg](https://github.com/bgdnxt/gg)
 
 # Install
 
 ```
-go get github.com/shomali11/gridder
+go get github.com/bgdnxt/gridder
 ```
 
 # Examples
@@ -25,7 +25,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -54,7 +54,6 @@ func main() {
 
 ![Result](examples/example1/example1.png)
 
-
 ## Example 2
 
 Exploring the `ImageConfig` configuration object. This defines the image that will be generated. You can customize the `Width` and `Height` to generate larger images.
@@ -66,7 +65,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -99,7 +98,6 @@ func main() {
 
 ![Result](examples/example2/example2.png)
 
-
 ## Example 3
 
 Using `PaintCell` to paint a cell by the grid's row and column
@@ -111,7 +109,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -139,7 +137,6 @@ func main() {
 
 ![Result](examples/example3/example3.png)
 
-
 ## Example 4
 
 Using `DrawRectangle` to draw rectangles in cells with various stylistic properties
@@ -151,7 +148,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -183,7 +180,6 @@ func main() {
 
 ![Result](examples/example4/example4.png)
 
-
 ## Example 5
 
 Using `DrawCircle` to draw circles in cells with various stylistic properties
@@ -195,7 +191,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -227,7 +223,6 @@ func main() {
 
 ![Result](examples/example5/example5.png)
 
-
 ## Example 6
 
 Using `DrawLine` to draw lines in cells with various stylistic properties
@@ -239,7 +234,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -273,7 +268,6 @@ func main() {
 
 ![Result](examples/example6/example6.png)
 
-
 ## Example 7
 
 Using `DrawPath` to draw a path between two cells with various stylistic properties
@@ -285,7 +279,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -316,7 +310,6 @@ func main() {
 
 ![Result](examples/example7/example7.png)
 
-
 ## Example 8
 
 Using `DrawString` to draw a string in a cell with various stylistic properties
@@ -329,7 +322,7 @@ import (
 	"log"
 
 	"github.com/golang/freetype/truetype"
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 	"golang.org/x/image/font/gofont/goregular"
 )
 
@@ -368,7 +361,6 @@ func main() {
 
 ![Result](examples/example8/example8.png)
 
-
 ## Example 9
 
 Combining multiple features to draw the shortest path on a grid
@@ -381,7 +373,7 @@ import (
 	"log"
 
 	"github.com/golang/freetype/truetype"
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 	"golang.org/x/image/font/gofont/goregular"
 )
 
@@ -439,7 +431,6 @@ func main() {
 
 ![Result](examples/example9/example9.png)
 
-
 ## Example 10
 
 Combining multiple features to draw a Bingo card
@@ -452,7 +443,7 @@ import (
 	"log"
 
 	"github.com/golang/freetype/truetype"
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 	"golang.org/x/image/font/gofont/goregular"
 )
 
@@ -510,7 +501,6 @@ func main() {
 
 ![Result](examples/example10/example10.png)
 
-
 ## Example 11
 
 Combining multiple features to draw a Tic Tac Toe game
@@ -522,7 +512,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -563,10 +553,9 @@ func main() {
 
 ![Result](examples/example11/example11.png)
 
-
 ## Example 12
 
-Extract image as a byte array.   Useful for recording image in a store in text format as example below.
+Extract image as a byte array. Useful for recording image in a store in text format as example below.
 
 ```go
 package main
@@ -580,7 +569,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
@@ -636,4 +625,3 @@ func main() {
 ```
 
 ![Result](examples/example12/example12.png)
-

@@ -4,7 +4,7 @@ import (
 	"image/color"
 	"log"
 
-	"github.com/shomali11/gridder"
+	"github.com/bgdnxt/gridder"
 )
 
 func main() {
